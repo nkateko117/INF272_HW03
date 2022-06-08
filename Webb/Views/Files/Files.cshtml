@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "Files";
+}
+
+@using Webb.Models
+@model List<FileModel>
+
+<h2>Files</h2>
+
+<div style="height: 400px; overflow: auto;">
+    <div class="well-sm">
+        <table class="table table-condensed table-hover">
+            <thead style="position: sticky;top: 0">
+                <tr bgcolor="#222222" class="auto-style">
+                    <th class="col-lg-8">File Name</th>
+                    <th class="t, col-lg-2">DOWNLOAD</th>
+                    <th class="t, col-lg-2">DELETE</th>
+                </tr>
+            </thead>
+            @foreach(FileModel file in Model)
+            {
+                <tr>
+                    <td>@file.FileName</td>
+                    <td>
+                        <button>
+                            @Html.ActionLink("Download", "DownloadFile",
+                             new { fileName = file.FileName })
+                        </button>
+                    </td>
+                    <td>
+                        <button>
+                            @Html.ActionLink("DELETE", "DeleteFile",
+                           new { fileName = file.FileName },
+                           new { onclick = "return confirm('Are you sure you wish to delete this?');" })
+                        </button>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>  

@@ -1,0 +1,46 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h2>The Home Of Uploading Media</h2>
+    <p class="lead">A Very Time Efficient Way of Uploading Media</p>
+</div>
+
+<div class="row">
+    <div class="col-md-7">
+        <h2>Description</h2>
+        <p>
+            This site offers users a service to upload meadia into the database. 
+            The user can upload 3 types of media, namely: Documents, Photos and Videos.
+            The user has the ability to view the media within our website. 
+        </p>
+    </div>
+    <div class="col-md-4">
+        <h2>Option Selection</h2>
+       
+        <div class="form-check">
+            @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <input class="form-check-input" type="radio" name="RadioType1" id="RadioDocument">
+                <label class="form-check-label" for="Document">
+                    Document
+                </label>
+
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="RadioType2" id="RadioImage">
+                    <label class="form-check-label" for="Image">Image</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="RadioType3" id="RadioVideo">
+                    <label class="form-check-label" for="Video">Video</label>
+                    <br />
+                </div>
+                <div><input type="file" name="files" /></div>
+                <br />
+                <div><input type="submit" value="Upload" /></div>
+                    }
+            </div>
+        
+        </div>
+</div>
