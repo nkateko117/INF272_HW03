@@ -26,6 +26,7 @@ namespace Webb.Controllers
         [HttpPost]
         public ActionResult Index(HttpPostedFileBase file, string RadioFType)
         {
+            string RadioType = RadioFType;
 
             if (file != null && file.ContentLength > 0)
             {
@@ -36,7 +37,7 @@ namespace Webb.Controllers
                     file.SaveAs(path);
                 }
 
-                else if (RadioType == "Document")
+                else if (RadioType == "Image")
                 {
                     var fileName = Path.GetFileName(file.FileName);
                     var path = Path.Combine(Server.MapPath("/Media/Images/"), fileName);
